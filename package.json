@@ -1,10 +1,10 @@
 {
   "name": "crud_nodejs",
   "version": "1.0.0",
-  "description": "CRUD made with Node.js, Express, TypeScript, TypeORM, EJS & SQLite.",
+  "description": "CRUD modificado en clase de PROGRAMACION II 2022.",
   "main": "index.js",
-  "repository": "https://github.com/sinvalbsneto/crud_nodejs.git",
-  "author": "Sinval Neto <70284242+sinvalbsneto@users.noreply.github.com>",
+  "repository": "https://github.com/tpCodeX/CRUD-PROGRAMACION2-2022.git",
+  "author": "Team 2 Oozma Kappa",
   "license": "MIT",
   "scripts": {
     "dev": "ts-node-dev src/server.ts",
