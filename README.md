@@ -3,7 +3,7 @@ CRUD hecho con Node.js, Express, TypeScript, TypeORM, EJS & amp y SQLite por @si
 
 Traducido al español y modificado por el equipo 2, 'Oozma Kappa'.
 
-![Home page image](https://github.com/sinvalbsneto/crud_nodejs/blob/main/public/img/home.png)
+![Home page image](https://user-images.githubusercontent.com/96827491/191409568-51e779d8-1ab0-4b87-9e2f-79fa8a29dbd4.png)
 
 ## ¿Cómo correr el proyecto?
 
