@@ -1,5 +1,5 @@
 function counter() {
-  let countdown = 3;
+  let countdown = 2;
 
   let timerDiv = document.getElementById("timer");
 
@@ -8,7 +8,7 @@ function counter() {
     countdown--;
     if (countdown === 0) {
       clearInterval(timer);
-      window.location.href = "./"
+      window.location.href = "../"
     }
   }, 1000);
 }
