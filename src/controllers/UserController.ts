@@ -19,12 +19,12 @@ class UserController {
         ciudad,
         provincia
       }).then(() => {
-        response.render("message", {
+        response.render("./usuarios/message", {
           message: "Usuario registrado con éxito."
         });
       });
     } catch (err) {
-      response.render("message", {
+      response.render("./usuarios/message", {
         message: `Error al registrar usuario: ${err.message}`
       });
     }
@@ -38,12 +38,12 @@ class UserController {
 
     try { //implementa los metodos del servicio.
       const users = await this.service.search(search);
-      response.render("search", {
+      response.render("./usuarios/search", {
         users: users,
         search: search
       });
     } catch (err) {
-      response.render("message", {
+      response.render("./usuarios/message", {
         message: `Error al buscar usuario: ${err.message}`
       });
     }
@@ -55,7 +55,7 @@ class UserController {
 
     const user = await this.service.getData(id);
 
-    return response.render("edit", {
+    return response.render("./usuarios/edit", {
       user: user
     });
   }
@@ -66,12 +66,12 @@ class UserController {
     
     try {
       await this.service.update({ id, nombreUsuario, eMail, teléfono, ciudad, provincia }).then(() => {
-        response.render("message", {
+        response.render("./usuarios/message", {
           message: "Usuario actualizado con éxito."
         });
       });
     } catch (err) {
-      response.render("message", {
+      response.render("./usuarios/message", {
         message: `Error al actualizar usuario: ${err.message}`
       });
     }
@@ -83,21 +83,21 @@ class UserController {
 
     try {
       await this.service.delete(id).then(() => {
-        response.render("message", {
+        response.render("./usuarios/message", {
           message: "Usuario eliminado exitosamente."
         });
       });
     } catch (err) {
-      response.render("message", {
+      response.render("./usuarios/message", {
         message: `Error al eliminar usuario: ${err.message}`
       });
     }
   }
   async handleListUsers(request: Request, response: Response) {
-    const users = await this.service.list();
+    const users = await this.service.list(); //Espera users:Usuario[](ARRAY DE OBJETOS 'Usuario'.)
 
-    return response.render("index", {
-      users: users
+    return response.render("./usuarios/list", { //'list'(.ejs) 
+      users: users //Aquí retorna users:Usuario[];
     });
   }
 

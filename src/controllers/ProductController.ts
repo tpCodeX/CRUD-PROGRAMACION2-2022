@@ -17,12 +17,12 @@ class ProductController {
         descripcion,
         precio,
         }).then(() => {
-        response.render("message", {
+        response.render("./productos/message", {
           message: "Producto registrado con éxito."
         });
       });
     } catch (err) {
-      response.render("message", {
+      response.render("./productos/message", {
         message: `Error al registrar producto: ${err.message}`
       });
     }
@@ -36,12 +36,12 @@ class ProductController {
 
     try { //implementa los metodos del servicio.
       const products = await this.service.search(search);
-      response.render("search", {
+      response.render("./productos/search", {
         products: products,
         search: search
       });
     } catch (err) {
-      response.render("message", {
+      response.render("./productos/message", {
         message: `Error al buscar producto: ${err.message}`
       });
     }
@@ -53,7 +53,7 @@ class ProductController {
 
     const product = await this.service.getData(id);
 
-    return response.render("edit", {
+    return response.render("./productos/edit", {
       product: product
     });
   }
@@ -64,12 +64,12 @@ class ProductController {
     
     try {
       await this.service.update({ id, nombreProducto,descripcion,precio }).then(() => {
-        response.render("message", {
+        response.render("./productos/message", {
           message: "Producto actualizado con éxito."
         });
       });
     } catch (err) {
-      response.render("message", {
+      response.render("./productos/message", {
         message: `Error al actualizar producto: ${err.message}`
       });
     }
@@ -81,12 +81,12 @@ class ProductController {
 
     try {
       await this.service.delete(id).then(() => {
-        response.render("message", {
+        response.render("./productos/message", {
           message: "Producto eliminado exitosamente."
         });
       });
     } catch (err) {
-      response.render("message", {
+      response.render("./productos/message", {
         message: `Error al eliminar producto: ${err.message}`
       });
     }
@@ -94,7 +94,7 @@ class ProductController {
   async handleListProducts(request: Request, response: Response) {
     const products = await this.service.list();
 
-    return response.render("index", {
+    return response.render("./productos/list", {
       products: products
     });
   }

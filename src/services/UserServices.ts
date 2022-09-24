@@ -61,23 +61,23 @@ class UserService {
           .orWhere("provincia like :search", { search: `%${search}%` })
           .getMany();
     
-        return user; //retorna el objeto del los usuarios que encontró
+        return user; //retorna el objeto del los usuarios que encontró 
     
       }
 
       async list() {
-        const usersRepository = getCustomRepository(UsersRepository);
+        const usersRepository = getCustomRepository(UsersRepository); //Constante que obtendrá la información,  mediante getCustomRepository()  del -REPO CREADO- 
     
-        const users = await usersRepository.find();
+        const users = await usersRepository.find(); //Espera la respuesta de la función find() del repo de usuario.
     
-        return users;
+        return users; //Retorna users:Usuario[]. (-ARRAY DE OBJETOS- 'Usuario'.)
       }
       async getData(id: string) {
         const usersRepository = getCustomRepository(UsersRepository);
     
-        const user = await usersRepository.findOne(id);
+        const user = await usersRepository.findOne(id); // busca por id cada user en la DB. 
     
-        return user;
+        return user; //Retorna user:Usuario (Objeto de tipo Usuario.)
       }
 
       async delete(id: string) {
