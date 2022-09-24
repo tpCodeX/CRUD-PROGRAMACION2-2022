@@ -7,7 +7,7 @@
   "author": "Team 2 Oozma Kappa",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev src/server.ts",
+    "dev": "nodemon src/server.ts",
     "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js"
   },
   "dependencies": {
