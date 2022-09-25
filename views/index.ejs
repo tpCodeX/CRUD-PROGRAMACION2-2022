@@ -21,23 +21,60 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/index.css" />
   </head>
 <body>
   <%- include('nav'); -%>  <!--NAV comun de todas las páginas. Cambia la ruta segun la vista-->
-  
-  <div class="cCont">
-  <div class="row">
-    <div class="col">.col</div>
-    <div class="col"></div>
-    <div class="col">.col</div>
-  </div>
-  </div>
-  
-  <div class="cardContainer">
-    <section class="productos" ><h2><a href="./productos">Lista de Productos</a></h2></section>
-    <section class="usuarios" ><h2><a href="./usuarios">Lista de Usuarios</a></h2></section>
-  </div>
+  <!-- Inicio Cards -->
+  <main class="flex-container">
+    <!-- Card Productos -->
+    <article class="card">
+      <section class="cardTitle">
+        <h2><a href="./productos">Lista de Productos</a></h2>
+      </section>
+      <section class="cardIcon">
+        <a href="./productos"><img class="svgImg"src="/img/package.svg" alt="productos"> </a>
+      </section>
+      <section class="cardFooter">
+        <div class="cardFooterInfo">
+          <a href="./productos/add">
+            <h4>Agregar Productos</h4>
+          </a>
+        </div>
+        <div class="cardFooterInfo">
+          <a href="./productos">
+            <h4>Ver Productos</h4>
+          </a>
+        </div>      
+      </section>
+    </article>
+    <!-- Card Usuarios -->
+    <article class="card">
+      <section class="cardTitle">
+        <h2><a href="./usuarios">Lista de Usuarios</a></h2>
+      </section>
+      <section class="cardIcon">
+        <a href="./usuarios"><img class="svgImg"src="/img/user.svg" alt="usuarios"> </a>
+      </section>
+      <section class="cardFooter">
+        <div class="cardFooterInfo">
+          <a href="./usuarios/add">
+            <h4>Agregar Usuarios</h4>
+          </a>
+        </div>
+        <div class="cardFooterInfo">
+          <a href="./usuarios">
+            <h4>Ver Usuarios</h4>
+          </a>
+        </div>
+      </section>
+    </article>
+  </main>
+
 </body>
 </html>
+

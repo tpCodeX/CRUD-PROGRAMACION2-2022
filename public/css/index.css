@@ -1,4 +1,55 @@
-.cCont{
+   
+:root{
+    --verde:rgb(25, 157, 7);
+}   
+
+
+
+.flex-container{
+    font-family: 'Share Tech Mono', monospace;
+    margin-top: 90px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.card{
+    width: 500px;
+    height: 650px;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    margin: auto;
+    border: 7px solid var(--verde);
+    color: var(--verde)
+}
+.svgImg{
+    height: 270px;
+    color: var(--verde);
+    border: 3px solid var(--verde);
+    border-radius: 50%;
+}
+a{
+    text-decoration:none;
+    color: var(--verde);
+}
+.cardTitle a{
+    border-top: 3px solid var(--verde);
+    border-bottom: 3px solid  var(--verde);
+}
+.cardTitle{
+    margin-top: 50px;
+}
+.cardTitle h2{
+    font-size: 40px;
+}
+.cardFooter{
+    border-top: 3px solid var(--verde);
+    border-bottom: 3px solid  var(--verde);
+    display: flex;
+    gap: 60px;
+    justify-items: center;
+    margin-bottom: 15px;
+}
+.cardFooterInfo h4{
+    font-size: 25px;
 }
