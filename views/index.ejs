@@ -26,18 +26,67 @@
   </head>
 <body>
   <%- include('nav'); -%>  <!--NAV comun de todas las páginas. Cambia la ruta segun la vista-->
-  
-  <div class="cCont">
-  <div class="row">
-    <div class="col">.col</div>
-    <div class="col"></div>
-    <div class="col">.col</div>
-  </div>
-  </div>
-  
-  <div class="cardContainer">
-    <section class="productos" ><h2><a href="./productos">Lista de Productos</a></h2></section>
-    <section class="usuarios" ><h2><a href="./usuarios">Lista de Usuarios</a></h2></section>
-  </div>
+  <!-- Separación de bajo presupuesto xd -->
+  <main class="flex-container">
+
+    <section class="card">
+
+      <h2><a href="./productos">Lista de Productos</a></h2>
+
+      
+
+      <a href="./productos"><img class="svgImg"src="/img/package.svg" alt="productos"> </a>
+
+      
+
+
+      <footer class="cardFooter">
+
+        <div class="cardFooterInfo1">
+
+          <h4>Agregar Producto</h3>
+
+        </div>
+
+        <div class="cardFooterInfo2">
+
+          <h4>Ver Producto</h3>
+
+        </div>
+
+      </footer>
+
+    </section>
+    
+<!-- Separación de bajo presupuesto xd -->
+    
+    <section class="card">
+
+      <h2><a href="./usuarios">Lista de Usuarios</a></h2>
+      
+     
+      <a href="./usuarios"><img class="svgImg"src="/img/user.svg" alt="usuarios"> </a>
+
+      
+
+      <footer class="cardFooter">
+
+        <div class="cardFooterInfo1">
+
+          <h4>Agregar <br> Usuario</h3>
+
+        </div>
+
+        <div class="cardFooterInfo2">
+
+          <h4>Ver Usuarios</h3>
+
+        </div>
+
+      </footer>
+    </section>
+
+
+  </main>
 </body>
 </html>

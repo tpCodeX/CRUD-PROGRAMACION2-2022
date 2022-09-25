@@ -1,4 +1,50 @@
-.cCont{
+.flex-container{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: baseline;
+    border: 200px;
+    
+}
+a{
+    color: rgb(25, 157, 7);
+    text-decoration: none;
+}
+.card{
+    border: 10px solid rgb(25, 157, 7);;
+    border-radius: 15%;
+    color: rgb(25, 157, 7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 500px;
+    height: 400px;
     align-items: center;
+}
+
+.card h2{
     margin: auto;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+}
+
+.cardFooter{
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 15px;
+}
+.svgImg{
+    width: 200px;
+}
+.cardFooter{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.cardFooterInfo1{
+    margin: 20px 50px 20px 20px;
+}
+
+.cardFooterInfo2{
+    margin: 20px 20px 20px 50px;
 }
