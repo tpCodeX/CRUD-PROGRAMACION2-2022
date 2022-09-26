@@ -28,8 +28,8 @@
     <br>
     <table class="table table-hover">
       <thead>
-        <th scope="col">Nombre del Registro</th>
-        <th scope="col">Información del Registro</th>
+        <th scope="col">Nombre del Producto</th>
+        <th scope="col">Información del Producto</th>
         <th>Creación</th>
         <th>Última actualización</th>
         <th scope="col">Acciones</th>
@@ -38,11 +38,11 @@
         <% searchResults.forEach(function(result) { %>
           <tr>
             <td>
-              <%= result.nombreProducto ?? result.nombreUsuario%>
+              <%= result.nombreProducto %>
             </td>
             <td>
-              <li><%= result.descripcion ?? result.eMail %> </li>
-              <li><%=  result.precio ?? result.teléfono %> </li>
+              <li>Descripción: <br><%= result.descripcion %> </li>
+              <li>Precio: $<%=  result.precio %> </li>
             </td>
             <td>
               <%= result.fechaCreacion.toLocaleDateString() %> &nbsp;-&nbsp;
@@ -63,6 +63,56 @@
                 <div class="row"></div>
                 <div class="row">
                   <form action="/productos/delete" method="POST">
+                    <input type="hidden" name="id" value="<%= result.id %>">
+                    <button type="submit" class="btn delete-btn"><i class="bi bi-trash"></i></button>
+                  </form>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <% }) %>
+      </tbody>
+    </table>
+    <br><br>
+    <table class="table table-hover">
+      <thead>
+        <th scope="col">Nombre del Usurio</th>
+        <th scope="col">Información del Usuario</th>
+        <th>Creación</th>
+        <th>Última actualización</th>
+        <th scope="col">Acciones</th>
+      </thead>
+      <tbody>
+        <% searchResults.forEach(function(result) { %>
+          <tr>
+            <td>
+              <%= result.nombreUsuario%>
+            </td>
+            <td>
+              <li>E-Mail: <%= result.eMail %> </li>
+              <li>Teléfono: <%= result.teléfono %> </li>
+              <li>Ciudad: <%= result.ciudad %> </li>
+              <li>Provincia: <%= result.provincia %> </li>
+            </td>
+            <td>
+              <%= result.fechaCreacion.toLocaleDateString() %> &nbsp;-&nbsp;
+                <%= result.fechaCreacion.toLocaleTimeString() %>
+            </td>
+            <td>
+              <%= result.fechaModificacion.toLocaleDateString() %>&nbsp;-&nbsp;
+                <%= result.fechaModificacion.toLocaleTimeString() %>
+            </td>
+            <td>
+              <div class="row">
+                <div class="row">
+                  <form action="/usuarios/edit" method="GET">
+                    <input type="hidden" name="id" value="<%= result.id %>">
+                    <button type="submit" class="btn edit-btn"><i class="bi bi-pencil"></i></button>
+                  </form>
+                </div>
+                <div class="row"></div>
+                <div class="row">
+                  <form action="/usuarios/delete" method="POST">
                     <input type="hidden" name="id" value="<%= result.id %>">
                     <button type="submit" class="btn delete-btn"><i class="bi bi-trash"></i></button>
                   </form>
