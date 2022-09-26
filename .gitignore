@@ -4,4 +4,3 @@ yarn.lock
 src/database/database.sqlite
 database.sqlite
 views/productViews
-src/controllers/searchController.ts
