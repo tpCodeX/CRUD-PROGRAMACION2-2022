@@ -1,9 +1,10 @@
 import { request, response, Router } from "express";
 import UserController from "./controllers/UserController";
 import ProductController from "./controllers/ProductController";
-const productController = new ProductController();
+import SearchController from "./controllers/SearchController";
 const router = Router();
-
+const searchController = new SearchController();
+const productController = new ProductController();
 const userController = new UserController();
 
 router.use((req,res,next)=>{
@@ -18,14 +19,15 @@ router.use((req,res,next)=>{
 router.get("/",(request,response)=>{
   response.render("./index")
 })
-
+//Search Service
+router.get("/search",searchController.handleSearch.bind(searchController));
 
 //User Services
 router.get("/usuarios", userController.handleListUsers.bind(userController));
 router.get("/usuarios/add", (request, response) => {
   response.render("usuarios/add");
 });
-router.get("/search", userController.handleSearchUser.bind(userController));
+router.get("/usuarios/search", userController.handleSearchUser.bind(userController));
 router.get("/usuarios/edit", userController.handleGetUserData.bind(userController));
 router.post("/usuarios/add-user", userController.handleCreateUser.bind(userController));
 router.post("/usuarios/edit-user", userController.handleUpdateUserData.bind(userController));

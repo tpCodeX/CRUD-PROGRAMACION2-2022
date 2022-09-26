@@ -53,7 +53,7 @@ class ProductServices {
           .orWhere("precio like :search", { search: `%${search}%` })
           .getMany();
     
-        return products; //retorna el objeto del los usuarios que encontró
+        return products; //retorna el objeto del los productos que encontró
     
       }
 
