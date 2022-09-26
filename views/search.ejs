@@ -18,20 +18,63 @@
 </head>
 
 <body>
-  <%- include('nav'); -%>  <!--NAV comun de todas las páginas. Cambia la ruta segun la vista-->
+  <%- include('./commons/nav'); -%>  <!--NAV comun de todas las páginas. Cambia la ruta segun la vista-->
   <br>
   <div class="row container centered" width="100vw">
     <div class="text-center">
-      <h2>Busca Usuario por "<%= search %>"</h2>
+      <h2>Busca Registro por "<%= search %>"</h2>
     </div>
     <br>
     <br>
-    <ul>
-      <% searchResults.forEach(function(result) { %>
-        <li><%= result %></li>
-        <% }) %>
-      </ul>
+    <table class="table table-hover">
+      <thead>
+        <th scope="col">Nombre del Registro</th>
+        <th scope="col">Información del Registro</th>
+        <th>Creación</th>
+        <th>Última actualización</th>
+        <th scope="col">Acciones</th>
+      </thead>
+      <tbody>
+        <% searchResults.forEach(function(result) { %>
+          <tr>
+            <td>
+              <%= result.nombreProducto ?? result.nombreUsuario%>
+            </td>
+            <td>
+              <li><%= result.descripcion ?? result.eMail %> </li>
+              <li><%=  result.precio ?? result.teléfono %> </li>
+            </td>
+            <td>
+              <%= result.fechaCreacion.toLocaleDateString() %> &nbsp;-&nbsp;
+                <%= result.fechaCreacion.toLocaleTimeString() %>
+            </td>
+            <td>
+              <%= result.fechaModificacion.toLocaleDateString() %>&nbsp;-&nbsp;
+                <%= result.fechaModificacion.toLocaleTimeString() %>
+            </td>
+            <td>
+              <div class="row">
+                <div class="row">
+                  <form action="/productos/edit" method="GET">
+                    <input type="hidden" name="id" value="<%= result.id %>">
+                    <button type="submit" class="btn edit-btn"><i class="bi bi-pencil"></i></button>
+                  </form>
+                </div>
+                <div class="row"></div>
+                <div class="row">
+                  <form action="/productos/delete-prouduct" method="POST">
+                    <input type="hidden" name="id" value="<%= result.id %>">
+                    <button type="submit" class="btn delete-btn"><i class="bi bi-trash"></i></button>
+                  </form>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <% }) %>
+      </tbody>
+    </table>
   </div>
+  <div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
     crossorigin="anonymous"></script>
