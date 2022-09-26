@@ -96,7 +96,7 @@ class UserController {
   async handleListUsers(request: Request, response: Response) {
     const users = await this.service.list(); //Espera users:Usuario[](ARRAY DE OBJETOS 'Usuario'.)
 
-    return response.render("./usuarios/list", { //'list'(.ejs) 
+    return response.render("./usuarios/list", { //renderiza /usuarios/list.ejs
       users: users //Aquí retorna users:Usuario[];
     });
   }
