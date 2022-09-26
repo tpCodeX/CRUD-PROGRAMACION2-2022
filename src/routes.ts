@@ -7,14 +7,14 @@ const searchController = new SearchController();
 const productController = new ProductController();
 const userController = new UserController();
 
-router.use((req,res,next)=>{
+/* router.use((req,res,next)=>{
   console.log(`
   Se realizó una solicitud de tipo
       👉 ${req.method}
       desde "${req.originalUrl}"
   `);
   next()
-});
+}); */
 
 router.get("/",(request,response)=>{
   response.render("./index")
