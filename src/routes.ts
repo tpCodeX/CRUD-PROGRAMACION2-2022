@@ -42,7 +42,7 @@ router.get("/productos/searchProducts", productController.handleSearchProduct.bi
 router.get("/productos/edit", productController.handleGetProductData.bind(productController));
 
 router.post("/productos/add-product", productController.handleCreateProduct.bind(productController));
-router.post("/productos/delete-product", productController.handleDeleteProduct.bind(productController));
+router.post("/productos/delete", productController.handleDeleteProduct.bind(productController));
 router.post("/productos/edit-product", productController.handleUpdateProductData.bind(productController));
 
 
