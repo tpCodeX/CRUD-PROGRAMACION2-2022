@@ -35,35 +35,38 @@
         <th scope="col">Acciones</th>
       </thead>
       <tbody>
-        <% searchResults.forEach(function(result) { %>
+        <% products.forEach(function(product) { %>
           <tr>
             <td>
-              <%= result.nombreProducto %>
+              <%= product.nombreProducto %>
             </td>
             <td>
-              <li>Descripción: <br><%= result.descripcion %> </li>
-              <li>Precio: $<%=  result.precio %> </li>
+              <li>Descripción: <br>
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <%= product.descripcion %> </li><br>
+              <li>Precio:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                 $<%=  product.precio %></li>
             </td>
             <td>
-              <%= result.fechaCreacion.toLocaleDateString() %> &nbsp;-&nbsp;
-                <%= result.fechaCreacion.toLocaleTimeString() %>
+              <%= product.fechaCreacion.toLocaleDateString() %> &nbsp;-&nbsp;
+                <%= product.fechaCreacion.toLocaleTimeString() %>
             </td>
             <td>
-              <%= result.fechaModificacion.toLocaleDateString() %>&nbsp;-&nbsp;
-                <%= result.fechaModificacion.toLocaleTimeString() %>
+              <%= product.fechaModificacion.toLocaleDateString() %>&nbsp;-&nbsp;
+                <%= product.fechaModificacion.toLocaleTimeString() %>
             </td>
             <td>
               <div class="row">
                 <div class="row">
                   <form action="/productos/edit" method="GET">
-                    <input type="hidden" name="id" value="<%= result.id %>">
+                    <input type="hidden" name="id" value="<%= product.id %>">
                     <button type="submit" class="btn edit-btn"><i class="bi bi-pencil"></i></button>
                   </form>
                 </div>
                 <div class="row"></div>
                 <div class="row">
                   <form action="/productos/delete" method="POST">
-                    <input type="hidden" name="id" value="<%= result.id %>">
+                    <input type="hidden" name="id" value="<%= product.id %>">
                     <button type="submit" class="btn delete-btn"><i class="bi bi-trash"></i></button>
                   </form>
                 </div>
@@ -83,37 +86,37 @@
         <th scope="col">Acciones</th>
       </thead>
       <tbody>
-        <% searchResults.forEach(function(result) { %>
+        <% users.forEach(function(user) { %>
           <tr>
             <td>
-              <%= result.nombreUsuario%>
+              <%= user.nombreUsuario%>
             </td>
             <td>
-              <li>E-Mail: <%= result.eMail %> </li>
-              <li>Teléfono: <%= result.teléfono %> </li>
-              <li>Ciudad: <%= result.ciudad %> </li>
-              <li>Provincia: <%= result.provincia %> </li>
+              <li>E-Mail: <%= user.eMail %> </li>
+              <li>Teléfono: <%= user.teléfono %> </li>
+              <li>Ciudad: <%= user.ciudad %> </li>
+              <li>Provincia: <%= user.provincia %> </li>
             </td>
             <td>
-              <%= result.fechaCreacion.toLocaleDateString() %> &nbsp;-&nbsp;
-                <%= result.fechaCreacion.toLocaleTimeString() %>
+              <%= user.fechaCreacion.toLocaleDateString() %> &nbsp;-&nbsp;
+                <%= user.fechaCreacion.toLocaleTimeString() %>
             </td>
             <td>
-              <%= result.fechaModificacion.toLocaleDateString() %>&nbsp;-&nbsp;
-                <%= result.fechaModificacion.toLocaleTimeString() %>
+              <%= user.fechaModificacion.toLocaleDateString() %>&nbsp;-&nbsp;
+                <%= user.fechaModificacion.toLocaleTimeString() %>
             </td>
             <td>
               <div class="row">
                 <div class="row">
                   <form action="/usuarios/edit" method="GET">
-                    <input type="hidden" name="id" value="<%= result.id %>">
+                    <input type="hidden" name="id" value="<%= user.id %>">
                     <button type="submit" class="btn edit-btn"><i class="bi bi-pencil"></i></button>
                   </form>
                 </div>
                 <div class="row"></div>
                 <div class="row">
                   <form action="/usuarios/delete" method="POST">
-                    <input type="hidden" name="id" value="<%= result.id %>">
+                    <input type="hidden" name="id" value="<%= user.id %>">
                     <button type="submit" class="btn delete-btn"><i class="bi bi-trash"></i></button>
                   </form>
                 </div>
