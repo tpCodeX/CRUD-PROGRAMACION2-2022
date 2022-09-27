@@ -12,10 +12,10 @@ class SearchController{
     try { //implementa los servicios.
       const products = await productServices.search(search); //Espera array de products:Productos[] (array de objetos) 
       const users = await userServices.search(search) //Espera array de users:Usuarios[] (array de objetos)
-      const searchResults=[...products,...users] // asd
       response.render("./search",{
         search: search,
-        searchResults: searchResults
+        users: users,
+        products:products
       })
     } catch (err) {
       response.render("./productos/message", {
