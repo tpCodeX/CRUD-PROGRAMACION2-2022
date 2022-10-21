@@ -26,6 +26,7 @@
     </div>
     <br>
     <br>
+    <% if (products) { %>
     <table class="table table-hover">
       <thead>
         <th scope="col">Nombre del Producto</th>
@@ -76,7 +77,9 @@
           <% }) %>
       </tbody>
     </table>
+    <% } %>
     <br><br>
+    <% if (users) { %>
     <table class="table table-hover">
       <thead>
         <th scope="col">Nombre del Usurio</th>
@@ -126,6 +129,7 @@
           <% }) %>
       </tbody>
     </table>
+    <% } %>
   </div>
   <div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"

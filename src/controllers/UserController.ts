@@ -7,7 +7,7 @@ class UserController {
     this.service=new UserServices();
   }
   async handleCreateUser(request: Request, response: Response) {
-    const { nombreUsuario, eMail, teléfono, ciudad, provincia } = request.body;
+    const { nombreUsuario, eMail, teléfono, ciudad, provincia } = request.body; //recibe los datos del formulario
 
     
 

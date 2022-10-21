@@ -18,7 +18,8 @@
 </head>
 
 <body>
-  <%- include('../commons/navProducts'); -%>  <!--NAV comun de todas las páginas. Cambia la ruta segun la vista-->
+  <%- include('../commons/nav');-%>
+  
   <br>
   <div class="row container centered" width="100vw">
     <div class="text-center">
@@ -27,7 +28,7 @@
     <br>
     <br>
     <br>
-    <table class="table table-hover">
+    <table class="table table-hover table-dark">
       <thead>
         <th scope="col">Nombre de Usuario</th>
         <th scope="col">Descripcion</th>
@@ -59,14 +60,14 @@
             <td>
               <div class="row">
                 <div class="row">
-                  <form action="./productos/edit" method="GET">
+                  <form action="/productos/edit" method="GET">
                     <input type="hidden" name="id" value="<%= producto.id %>">
                     <button type="submit" class="btn edit-btn"><i class="bi bi-pencil"></i></button>
                   </form>
                 </div>
                 <div class="row"></div>
                 <div class="row">
-                  <form action="./productos/delete" method="POST">
+                  <form action="../productos/delete" method="POST">
                     <input type="hidden" name="id" value="<%= producto.id %>">
                     <button type="submit" class="btn delete-btn"><i class="bi bi-trash"></i></button>
                   </form>

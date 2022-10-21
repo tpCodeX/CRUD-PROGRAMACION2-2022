@@ -11,7 +11,7 @@ class SearchController{
     search = search.toString(); //Formatea la busqueda a String.
     try { //implementa los servicios.
       const products = await productServices.search(search); //Espera array de products:Productos[] (array de objetos) 
-      const users = await userServices.search(search) //Espera array de users:Usuarios[] (array de objetos)
+      const users = await userServices.search(search) //Espera array de users:Usuarios[] (array de usuarios)
       response.render("./search",{
         search: search,
         users: users,
