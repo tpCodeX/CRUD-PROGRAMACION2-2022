@@ -11,7 +11,7 @@ class Categoria {
   @Column()
   nombre: string;
 
-  @OneToMany( () => Producto, producto => producto.categorias)
+  @OneToMany( () => Producto, producto => producto.categoria)
   
   productos: Producto [];
 
