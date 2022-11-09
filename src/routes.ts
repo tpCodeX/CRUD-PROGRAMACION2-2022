@@ -49,14 +49,24 @@ router.post("/usuarios/delete-user", userController.handleDeleteUser.bind(userCo
 //Product Services
 // router.get("/productos/searchProducts", productController.handleSearchProduct.bind(productController));
 router.get("/productos", productController.handleListProducts.bind(productController));
-router.get("/productos/add", (request, response) => {
-  response.render("productos/add");
+router.get("/productos/add", //Pasar por Controller que entregue la categoría xd
 });
 router.get("/productos/edit", productController.handleGetProductData.bind(productController));
 
 router.post("/productos/add-product", productController.handleCreateProduct.bind(productController));
 router.post("/productos/delete", productController.handleDeleteProduct.bind(productController));
 router.post("/productos/edit-product", productController.handleUpdateProductData.bind(productController));
+
+
+//Categoria Services
+router.get("/categorias", productController.handleListProducts.bind(productController));
+router.get("/categorias/add", //Pasar por Controller que entregue la categoría xd
+});
+router.get("/categorias/edit", productController.handleGetProductData.bind(productController));
+
+router.post("/categorias/add-categoria", productController.handleCreateProduct.bind(productController));
+router.post("/categorias/delete", productController.handleDeleteProduct.bind(productController));
+router.post("/categorias/edit-categoria", productController.handleUpdateProductData.bind(productController));
 
 
 
