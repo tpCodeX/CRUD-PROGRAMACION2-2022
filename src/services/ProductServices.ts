@@ -8,11 +8,10 @@ class ProductServices {
       if (!nombreProducto || !descripcion || !precio ) {
         throw new Error("Por favor, llene todos los campos.");
       }
-  
+
       const productRepository = getCustomRepository(ProductRepository);
-  
+
       const productNameAlreadyExists = await productRepository.findOne({ nombreProducto });
-  
       if (productNameAlreadyExists) {
         throw new Error("El nombre del producto seleccionado ya está registrado.");
       }

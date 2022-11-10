@@ -77,7 +77,8 @@ class ProductController {
   }
 
   async handleDeleteProduct(request: Request, response: Response) {
-    const { id } = request.body;
+    let id=request.body.id
+    id=id.toString();
 
     try {
       await this.service.delete(id).then(() => {
