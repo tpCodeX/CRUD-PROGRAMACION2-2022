@@ -2,22 +2,29 @@ import { getCustomRepository } from "typeorm";
 import { ProductRepository } from "../repositories/ProductRepository ";
 import { Producto } from "../entities/Producto";
 import IProducto from "../interfaces/iProducto";
+import { CategoriaRepository } from "../repositories/CategoriaRepository";
+import { Categoria } from "../entities/Categoria";
 
 class ProductServices {
-    async create({ nombreProducto,descripcion,precio }: IProducto) {
-      if (!nombreProducto || !descripcion || !precio ) {
+    async create({ nombreProducto,descripcion,precio,categoria }: IProducto) {
+      if (!nombreProducto || !descripcion || !precio || !categoria) {
         throw new Error("Por favor, llene todos los campos.");
       }
   
       const productRepository = getCustomRepository(ProductRepository);
+      const categoriaRepository=getCustomRepository(CategoriaRepository);
   
       const productNameAlreadyExists = await productRepository.findOne({ nombreProducto });
   
       if (productNameAlreadyExists) {
         throw new Error("El nombre del producto seleccionado ya está registrado.");
       }
-
-      const producto = productRepository.create({ nombreProducto,descripcion,precio });
+      const categ = await categoriaRepository.findOne({ nombre:categoria.nombre })
+      const producto=new Producto();
+      producto.nombreProducto=nombreProducto
+      producto.descripcion=descripcion
+      producto.precio=precio
+      producto.categoria=categ
   
       await productRepository.save(producto);
   
@@ -25,13 +32,15 @@ class ProductServices {
   
     }
 
-    async update({ id, nombreProducto,descripcion,precio}: IProducto) {
+    async update({ id, nombreProducto,descripcion,precio,categoria}: IProducto) {
         const productsRepository = getCustomRepository(ProductRepository);
-    
+        const categoriaRepository = getCustomRepository(CategoriaRepository);
+        const categ = await categoriaRepository.findOne({ nombre : categoria.nombre });
+        const nombreCategoria=categ.nombre
         const products = await productsRepository
           .createQueryBuilder()
           .update(Producto)
-          .set({ nombreProducto,descripcion,precio })
+          .set({ nombreProducto,descripcion,precio,categoria})
           .where("id = :id", { id })
           .execute();
     

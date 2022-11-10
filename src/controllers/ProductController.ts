@@ -91,16 +91,9 @@ class ProductController {
       });
     }
   }
-  async handleListProducts(request: Request, response: Response) {
+    async handleListProducts(request: Request, response: Response) {
     const products = await this.service.list();
-
-    return response.render("./productos/list", {
-      products: products
-    });
-  }
-  async handleListProducts(request: Request, response: Response) {
-    const products = await this.service.list();
-    const categorias = await
+    
     return response.render("./productos/list", {
       products: products
     });
