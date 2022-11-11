@@ -1,21 +1,23 @@
 import { Request, Response } from "express";
+import { CategoriaService } from "../services/CategoriaServices";
 import ProductServices from "../services/ProductServices";
 
 class ProductController {
   private service:ProductServices;
+  public categoriaService:CategoriaService;
   constructor(){
     this.service=new ProductServices();
+    this.categoriaService= new CategoriaService();
   }
   async handleCreateProduct(request: Request, response: Response) {
-    const { nombreProducto,descripcion,precio } = request.body;
-
-    
+    const { nombreProducto,descripcion,precio,categoria} = request.body;
 
     try {
       await this.service.create({
         nombreProducto,
         descripcion,
         precio,
+        categoria
         }).then(() => {
         response.render("./productos/message", {
           message: "Producto registrado con éxito."
@@ -59,11 +61,11 @@ class ProductController {
   }
 
   async handleUpdateProductData(request: Request, response: Response) {
-    const { id, nombreProducto,descripcion,precio } = request.body;
+    const { id, nombreProducto,descripcion,precio,categoria } = request.body;
 
     
     try {
-      await this.service.update({ id, nombreProducto,descripcion,precio }).then(() => {
+      await this.service.update({ id, nombreProducto,descripcion,precio,categoria }).then(() => {
         response.render("./productos/message", {
           message: "Producto actualizado con éxito."
         });
@@ -92,11 +94,22 @@ class ProductController {
       });
     }
   }
+  async getCategoria(req:Request,res:Response){
+    const listCategoriasService = new CategoriaService();
+    const categorias = await listCategoriasService.list();
+    const coso="coso";
+    return res.render("./productos/add",{
+      listaCategorias:categorias,
+      coso:coso,
+    })
+  }
+
+
   async handleListProducts(request: Request, response: Response) {
-    const products = await this.service.list();
+    const productos = await this.service.list();
 
     return response.render("./productos/list", {
-      products: products
+      products: productos
     });
   }
 

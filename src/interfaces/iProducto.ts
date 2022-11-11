@@ -3,6 +3,7 @@ interface IProducto {
     nombreProducto: string;
     descripcion: string;
     precio: number;
+    categoria:string;
     }
 
 export default IProducto;

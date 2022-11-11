@@ -2,7 +2,10 @@ import { request, response, Router } from "express";
 import UserController from "./controllers/UserController";
 import ProductController from "./controllers/ProductController";
 import SearchController from "./controllers/SearchController";
+import { CategoriaController } from "./controllers/CategoriaController";
+import { RelationQueryBuilder } from "typeorm";
 const router = Router();
+const categoriaController=new CategoriaController();
 const searchController = new SearchController();
 const productController = new ProductController();
 const userController = new UserController();
@@ -22,7 +25,7 @@ router.get("/",(request,response)=>{
 //Search Service
 router.get("/search",searchController.handleSearch.bind(searchController));
 
-//User Services
+//Rutas Usuario
 router.get("/usuarios", userController.handleListUsers.bind(userController));
 router.get("/usuarios/add", (request, response) => {
   response.render("usuarios/add");
@@ -33,11 +36,9 @@ router.post("/usuarios/add-user", userController.handleCreateUser.bind(userContr
 router.post("/usuarios/edit-user", userController.handleUpdateUserData.bind(userController));
 router.post("/usuarios/delete-user", userController.handleDeleteUser.bind(userController));
 
-//Product Services
+//Rutas Producto
 router.get("/productos", productController.handleListProducts.bind(productController));
-router.get("/productos/add", (request, response) => {
-  response.render("productos/add");
-});
+router.get("/productos/add",productController.getCategoria.bind(productController));
 router.get("/productos/searchProducts", productController.handleSearchProduct.bind(productController));
 router.get("/productos/edit", productController.handleGetProductData.bind(productController));
 
@@ -45,8 +46,18 @@ router.post("/productos/add-product", productController.handleCreateProduct.bind
 router.post("/productos/delete", productController.handleDeleteProduct.bind(productController));
 router.post("/productos/edit-product", productController.handleUpdateProductData.bind(productController));
 
+//Rutas Categoria
+router.get("/categorias",categoriaController.listhandle.bind(categoriaController));
+router.get("/categorias/add",(request,response)=>{
+  response.render("./categorias/add")
+});
+router.get("/categorias/search",categoriaController.searchhandle.bind(categoriaController));
+router.get("/categorias/edit",categoriaController.getdatahandle.bind(categoriaController));
 
 
 
+router.post("/categorias/add-categoria",categoriaController.createhandle.bind(categoriaController));
+router.post("/categorias/edit-categoria",categoriaController.updatehandle.bind(categoriaController));
+router.post("/categorias/delete",categoriaController.deletehandle.bind(categoriaController));
 export { router };
 

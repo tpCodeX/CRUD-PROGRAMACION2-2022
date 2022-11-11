@@ -18,9 +18,6 @@ class Producto {
   @Column()
   precio: number;
 
-  @Column()
-  tipo?:String;
-
   @ManyToMany(()=>Categoria, categoria =>categoria.productos)
   categorias:Categoria
 
