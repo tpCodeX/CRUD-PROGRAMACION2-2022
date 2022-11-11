@@ -40,6 +40,17 @@
           </div>
         </div>
         <br />
+        <div class="col-6">
+          <label for="categoria" class="form-label p-btn">Categoría</label>
+          <select name="categoria" id="categoria" class="form-select">
+            <option value="" selected disabled>Seleccione una categoría</option>
+            <% listaCategorias.forEach(categoria=> { %>
+              <option value="<%= categoria.nombre%>">
+                <%= categoria.nombre %>
+              </option>
+              <%})%>
+          </select>
+        </div>
         <div class="row">
           <div class="col-6">
             <label for="descripcion" class="form-label">Descripción</label>

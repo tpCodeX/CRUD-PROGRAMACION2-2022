@@ -52,11 +52,14 @@ class ProductController {
   async handleGetProductData(request: Request, response: Response) {
     let { id } = request.query;
     id = id.toString();
+    const listCategoriasService = new CategoriaService();
+    const categorias = await listCategoriasService.list();
 
     const product = await this.service.getData(id);
 
     return response.render("./productos/edit", {
-      product: product
+      product: product,
+      listaCategorias:categorias
     });
   }
 
