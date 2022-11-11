@@ -22,6 +22,9 @@ const userController = new UserController();
 router.get("/",(request,response)=>{
   response.render("./index")
 })
+
+
+
 //Search Service
 router.get("/search",searchController.handleSearch.bind(searchController));
 
